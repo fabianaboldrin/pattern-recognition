@@ -1,0 +1,99 @@
+---
+title: "Bayes Error Rate"
+output: html_document
+---
+
+## Introduçao
+
+Dado problema de observação de ocorrencia de certa
+proteína 'p' em indivíduos com cancer e indivíduos
+sem cancer, faça o plot com a 
+
+Função para calculo de densidade de probabilidade
+de um evento específico
+
+```{r}
+f = function(p, x, N, C = 1){
+  return(C * p^x * (1-p)^(N-x))
+}
+```
+
+## Sample para pn (população com cancer)
+
+```{r}
+# sample
+pn = seq(0, 0.05, len=500)
+
+y = f(p = pn, x = 20, N = 1000)
+```
+
+## Gráfico de densidade de probabilidade de pn
+
+```{r}
+plot(pn, y)
+```
+
+```{r}
+# função de integral que assume intervalos igualmente
+# espaçados
+
+I = function(x, y){
+   return(sum(y)*(x[2]-x[1]))
+}
+```
+
+```{r}
+# pela formula, a constante normalizadora é igual a
+# integral de p e y assumindo sempre intervalos
+# igualmente espaçados
+
+normalizador = I(pn, y)
+```
+
+```{r}
+# calculo de densidade de probabilidade de sample p
+# agora com constante normalizada
+ynormalizado = f(p = pn, x = 20, N = 1000, C = 1/normalizador)
+```
+
+```{r}
+plot(pn, ynormalizado)
+```
+
+```{r}
+# teste para garantir que o normalizador esta correto:
+#   integrar a sample com o ynormalizado para garantir
+#   que realmente tem valor de 1
+I(p, ynormalizado)
+```
+
+```{r}
+# sample pessoas sem cancer
+pc = seq(0, 0.05, len=500)
+
+y = f(p = pc, x = 30, N = 2013)
+```
+
+## Gráfico de densidade de probabilidade de pc
+
+```{r}
+plot(pn, y)
+```
+
+```{r}
+# pela formula, a constante normalizadora é igual a
+# integral de p e y assumindo sempre intervalos
+# igualmente espaçados
+
+normalizadorn = I(pc, y)
+```
+
+```{r}
+# calculo de densidade de probabilidade de sample p
+# agora com constante normalizada
+ynormalizadonormal = f(p = pc, x = 30, N = 2013, C = 1/normalizadorn)
+```
+
+```{r}
+plot(pc, ynormalizadonormal)
+```
