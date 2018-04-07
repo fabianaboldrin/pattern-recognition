@@ -33,67 +33,58 @@ y = f(p = pn, x = 20, N = 1000)
 plot(pn, y)
 ```
 
+Função de integral que assume intervalos igualmente espaçados
 ```{r}
-# função de integral que assume intervalos igualmente
-# espaçados
-
 I = function(x, y){
    return(sum(y)*(x[2]-x[1]))
 }
 ```
 
+Pela formula, a constante normalizadora é igual a integral de p e y assumindo sempre intervalos
+igualmente espaçados
 ```{r}
-# pela formula, a constante normalizadora é igual a
-# integral de p e y assumindo sempre intervalos
-# igualmente espaçados
-
 normalizador = I(pn, y)
 ```
 
+Calculo de densidade de probabilidade de sample p agora com constante normalizada
 ```{r}
-# calculo de densidade de probabilidade de sample p
-# agora com constante normalizada
 ynormalizado = f(p = pn, x = 20, N = 1000, C = 1/normalizador)
 ```
 
+## Gráfico de densidade de probabilidade de pn normalizado
 ```{r}
 plot(pn, ynormalizado)
 ```
 
+Teste para garantir que o normalizador esta correto:
+integrar a sample com o ynormalizado para garantir que realmente tem valor de 1
 ```{r}
-# teste para garantir que o normalizador esta correto:
-#   integrar a sample com o ynormalizado para garantir
-#   que realmente tem valor de 1
 I(p, ynormalizado)
 ```
 
+### Sample pessoas sem cancer
 ```{r}
-# sample pessoas sem cancer
 pc = seq(0, 0.05, len=500)
 
 y = f(p = pc, x = 30, N = 2013)
 ```
 
 ## Gráfico de densidade de probabilidade de pc
-
 ```{r}
 plot(pn, y)
 ```
 
+Pela formula, a constante normalizadora é igual a integral de p e y assumindo sempre intervalos igualmente espaçados
 ```{r}
-# pela formula, a constante normalizadora é igual a
-# integral de p e y assumindo sempre intervalos
-# igualmente espaçados
-
 normalizadorn = I(pc, y)
 ```
 
+Calculo de densidade de probabilidade de sample p agora com constante normalizada
 ```{r}
-# calculo de densidade de probabilidade de sample p
-# agora com constante normalizada
 ynormalizadonormal = f(p = pc, x = 30, N = 2013, C = 1/normalizadorn)
 ```
 
+## Gráfico de densidade de probabilidade de pc normalizado
 ```{r}
 plot(pc, ynormalizadonormal)
 ```
