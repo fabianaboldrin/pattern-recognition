@@ -1,0 +1,99 @@
+---
+title: "densidade de probabilidade"
+output: html_document
+---
+# Densidade de Probabilidade
+Sample    
+```{r}
+x1 = round(rnorm(n = 100,
+                mean = 39.81103,
+                sd = 0.5659357), 3)
+```
+
+Média
+```{r}
+mean(x1)
+```
+
+Desvio padrão
+```{r}
+sd(x1)
+```
+
+Histograma da distribuição x1
+```{r}
+hist(x1, col="pink", br = 6, probability = T)
+```
+
+Pela análise do histograma é possivel ver que a probabildiade de ocorrencia
+de valores em torno de 40 é maior. Diferentemente de um experimento com dados, 
+onde a probabilidade de ocorrencia de todas as faces sao iguais.
+
+Sample 2   
+```{r}
+x2 = round(rnorm(n = 500,
+                mean = 39.79993,
+                sd = 0.5956503), 3)
+```
+
+Média
+```{r}
+mean(x2)
+```
+
+Desvio padrão
+```{r}
+sd(x2)
+```
+
+Histograma da distribuição x1
+```{r}
+hist(x2, col="magenta", br = 15, probability = T)
+abline(v = mean(x2), col = "red")
+```
+
+Sample 3   
+```{r}
+x3 = round(rnorm(n = 1000,
+                 mean = 39.79883,
+                 sd = 0.5931845), 3)
+```
+
+Média
+```{r}
+mean(x3)
+```
+
+Desvio padrão
+```{r}
+sd(x3)
+```
+
+Histograma da distribuição x1
+```{r}
+hist(x3, col="red", br = 20, probability = T)
+abline(v = mean(x3), col = "blue")
+```
+
+Sample 4   
+```{r}
+x4 = round(rnorm(n = 10000,
+                 mean = 39.80683,
+                 sd = 0.6029), 3)
+```
+
+Média
+```{r}
+mean(x4)
+```
+
+Desvio padrão
+```{r}
+sd(x4)
+```
+
+Histograma da distribuição x1
+```{r}
+hist(x4, col="red", br = 30, probability = T)
+abline(v = mean(x4), col = "blue")
+```
