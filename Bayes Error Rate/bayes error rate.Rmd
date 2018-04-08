@@ -76,15 +76,21 @@ plot(pn, y)
 
 Pela formula, a constante normalizadora é igual a integral de p e y assumindo sempre intervalos igualmente espaçados
 ```{r}
-normalizadorn = I(pc, y)
+normalizadorn = I(pn, y)
 ```
 
 Calculo de densidade de probabilidade de sample p agora com constante normalizada
 ```{r}
-ynormalizadonormal = f(p = pc, x = 30, N = 2013, C = 1/normalizadorn)
+ynormalizadonormal = f(p = pn, x = 30, N = 2013, C = 1/normalizadorn)
 ```
 
 ## Gráfico de densidade de probabilidade de pc normalizado
 ```{r}
-plot(pc, ynormalizadonormal)
+plot(pn, ynormalizadonormal)
+```
+
+### Gráfico de comparação entre distribuições de pc e pn
+```{r}
+plot(pn, ynormalizadonormal, col = "darkgreen")
+points(pc, ynormalizado, col = "red")
 ```
