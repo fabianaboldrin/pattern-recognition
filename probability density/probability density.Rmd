@@ -2,7 +2,7 @@
 title: "densidade de probabilidade"
 output: html_document
 ---
-# Densidade de Probabilidade
+# Distribuição da densidade de Probabilidade
 Sample    
 ```{r}
 x1 = round(rnorm(n = 100,
@@ -94,6 +94,34 @@ sd(x4)
 
 Histograma da distribuição x1
 ```{r}
-hist(x4, col="red", br = 30, probability = T)
+hist(x4, col="grey", br = 30, probability = T)
 abline(v = mean(x4), col = "blue")
 ```
+
+Sample 5   
+```{r}
+x5 = round(rnorm(n = 1000000,
+                 mean = 39.79947,
+                 sd = 0.6034091), 3)
+```
+
+Média
+```{r}
+mean(x5)
+```
+
+Desvio padrão
+```{r}
+sd(x5)
+```
+
+Histograma da distribuição x5
+```{r}
+hist(x5, col="blue", br = 100, probability = T)
+abline(v = mean(x5), col = "red")
+```
+
+## Definição de densidade de probabilidade
+P(a), n -> inf
+Em funções de densidade de probabilidade, a área expressa dos dados é igual a 1
+
