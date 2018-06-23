@@ -58,4 +58,9 @@ such a way that there is more noise in the data. The model
 the variance of the normal distribution used to generate the
 error term  in (b). Describe your results.
 '''
-
+set.seed(1)
+eps2 = rnorm(100, 0, 0.5)
+x2 = rnorm(100)
+y2 = -1 + 0.5*x2 + eps2
+lm.fit2 = lm(y2~x2)
+summary(lm.fit2)
