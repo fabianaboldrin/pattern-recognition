@@ -64,3 +64,11 @@ x2 = rnorm(100)
 y2 = -1 + 0.5*x2 + eps2
 lm.fit2 = lm(y2~x2)
 summary(lm.fit2)
+'''
+What are the confidence intervals for β0 and β1 based on the
+original data set, the noisier data set, and the less noisy data
+set? Comment on your results.
+'''
+confint(lm.fit)
+confint(lm.fit1)
+confint(lm.fit2)
