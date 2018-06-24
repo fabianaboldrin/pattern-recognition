@@ -28,3 +28,10 @@ H0 : β1 = 0?
 '''
 lm.fit = lm(y~x1)
 summary(lm.fit)
+'''
+Now fit a least squares regression to predict y using only x2.
+Comment on your results. Can you reject the null hypothesis
+H0 : β1 = 0?
+'''
+lm.fit = lm(y~x2)
+summary(lm.fit)
